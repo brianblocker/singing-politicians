@@ -1,0 +1,80 @@
+#canvas {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	background: #0099ff;
+	overflow: hidden;
+}
+
+.rotating-bg {
+	background: url( '../_img/stage-bg.png' ) 50% 50% no-repeat;
+	-webkit-animation: spin 60s linear 0s infinite;
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 400px;
+	height: 400px;
+}
+
+.person .face,
+.person .face .jaw {
+	width: 77px;
+	height: 100px;
+	display: block;
+}
+
+.face {
+	position: absolute;
+	top: 50%;
+	margin-top: -50px;
+	-webkit-animation: boogie 2s ease-in-out 0s infinite;
+}
+
+.jaw {
+	-webkit-animation: talk 2s linear 0s infinite alternate;
+}
+
+.person.romney .face {
+	background: url( '../_img/romney-face.png' ) top left no-repeat;
+	-webkit-animation-delay: 0.1s;
+	right: 15px;
+}
+
+.person.romney .jaw {
+	background: url( '../_img/romney-jaw.png' ) top left no-repeat;
+}
+
+.person.obama .face {
+	background: url( '../_img/obama-face.png' ) top left no-repeat;
+	left: 15px;
+}
+
+.person.obama .jaw {
+	background: url( '../_img/obama-jaw.png' ) top left no-repeat;
+}
+
+@-webkit-keyframes talk {
+	0%, 20%, 75%, 100% { -webkit-transform: translateY( 0 ); }
+	40% { -webkit-transform: translateY( -5px ); }
+	10%, 30%, 55%, 90% { -webkit-transform: translateY( 5px ); }
+}
+
+@-webkit-keyframes spin {
+	100% { -webkit-transform: rotate( 360deg ); }
+}
+
+@-webkit-keyframes nod {
+	0% { -webkit-transform: translateX( -5px ); }
+	25% { -webkit-transform: translateX( -5px ) rotate( 10deg ) translateY( 5px ); }
+	50% { -webkit-transform: translateX( 5px ) rotate( 0deg ) translateY( -5px ); }
+	75% { -webkit-transform: translateX( 5px ) rotate( -10deg ) translateY( 5px ); }
+	100% { -webkit-transform: translateX( -5px ); }
+}
+
+@-webkit-keyframes boogie {
+	0% { -webkit-transform: translateX( -5px ) translateY( -5px ); }
+	25% { -webkit-transform: translateX( -5px ) rotate( 10deg ); }
+	50% { -webkit-transform: translateX( 5px ) translateY( -5px ); }
+	75% { -webkit-transform: translateX( 5px ) rotate( -10deg ); }
+	100% { -webkit-transform: translateX( -5px ) translateY( -5px ); }
+}
